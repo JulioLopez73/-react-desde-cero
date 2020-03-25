@@ -1,8 +1,8 @@
 import React from 'react'
-import Course from './Course'
+import Course from '../Pages/Course'
 import { Link } from 'react-router-dom'
 
-const Curso = ({id, title, image, price, profesor}) => (
+const CourseCard = ({id, title, image, price, professor}) => (
   <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
       <Link to={`/cursos/${id}`}>
@@ -12,7 +12,7 @@ const Curso = ({id, title, image, price, profesor}) => (
     <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
       <h3 className="t5 s-mb-2 s-center"> {title} </h3>
       <div className="s-main-center">
-        {profesor}
+        {professor}
       </div>
       <div className="s-main-center">
     <a className="button--ghost-alert button--tiny" href="https://ed.team">{ `$ ${price} UDS` }</a>
@@ -23,11 +23,11 @@ const Curso = ({id, title, image, price, profesor}) => (
 
 
 
-Curso.defaultProps = {
+CourseCard.defaultProps = {
   title: 'No se encontró ningún título',
   image: "https://c.pxhere.com/photos/27/9a/architecture_buildings_city_cityscape_downtown_hd_wallpaper_reflection_river-1170115.jpg!d",
   price: "--",
   Profesor: ""
 }
 
-export default Curso
+export default CourseCard
