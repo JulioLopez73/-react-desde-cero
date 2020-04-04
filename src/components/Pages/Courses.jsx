@@ -1,30 +1,12 @@
-import React, { Component } from 'react'
-import CourseCard from '../Molecules/CourseCard'
-import axios from 'axios'
+import React from 'react'
+// import CourseCard from '../Molecules/CourseCard'
 import CourseGrid from '../Organisms/CourseGrid'
+import {connect} from 'react-redux'
 
-class Courses extends Component {
+const Courses = ({courses}) => <CourseGrid courses={courses} />
 
-  constructor (props) {
-    super(props)
-    
-    this.state = {
-      courses: []
-    }
-  }
+const mapStateToProps = state => ({
+  courses: state.coursesReducer.courses
+})
 
-  componentDidMount() {
-    axios.get("http://my-json-server.typicode.com/JulioLopez73/json-db/cursos")
-    .then(resp => this.setState({
-      courses: resp.data
-    }))
-  }
-
-  render() {
-    const { courses } = this.state
-
-    return <CourseGrid courses={courses}/>
-  }
-}
-
-export default Courses
+export default connect(mapStateToProps, {}) (Courses)

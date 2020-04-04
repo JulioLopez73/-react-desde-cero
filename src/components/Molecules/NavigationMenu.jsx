@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, NavLink} from 'react-router-dom'
+import CartCounter from '../Atoms/CartCounter'
 
 const NavigationMenu = () => (
   <nav className="main-menu" id="main-menu">
@@ -10,6 +11,7 @@ const NavigationMenu = () => (
       <li><NavLink to="/formulario" activeClassName="activo"> Contacto </NavLink></li>
       <li><NavLink to="/publica" activeClassName="activo"> Página publica </NavLink></li>
       <li><NavLink to="/privada" activeClassName="activo"> Página privada </NavLink></li>
+      <CartCounter />
     </ul>
   </nav>
 )
